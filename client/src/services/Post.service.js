@@ -12,7 +12,12 @@ const PostService = (() => {
     return data;
   };
 
-  return { getPosts, createPost };
+  const deletePost = async (id) => {
+    await axios.delete(`${baseUrl}/${id}`);
+    return;
+  };
+
+  return { getPosts, createPost, deletePost };
 })();
 
 export default PostService;

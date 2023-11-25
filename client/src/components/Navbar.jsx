@@ -79,7 +79,7 @@ function Navbar() {
       </div>
       <div className="flex gap-2 navbar-end md:gap-4">
         <CreatePostModal />
-        <button className="btn btn-sm md:btn-md">
+        <button className="btn btn-sm md:btn-md btn-square">
           <label className="swap swap-rotate">
             <input
               type="checkbox"
