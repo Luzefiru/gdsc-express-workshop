@@ -62,7 +62,7 @@ function CreatePostModal() {
                 handleChange(e, setTitle);
               }}
               type="text"
-              placeholder="Type here"
+              placeholder="An interesting title"
               className="w-full input input-bordered"
             />
             <label className="mt-2 label">
@@ -74,7 +74,7 @@ function CreatePostModal() {
                 handleChange(e, setContent);
               }}
               className="w-full textarea textarea-bordered"
-              placeholder="Bio"
+              placeholder="Your content goes here"
             ></textarea>
           </div>
           {error !== '' && <p className="font-semibold text-error">{error}</p>}
