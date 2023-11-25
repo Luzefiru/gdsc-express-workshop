@@ -5,7 +5,7 @@ function Post({ id, title, content }) {
   return (
     <div
       data-id={id}
-      className="w-full h-full shadow-lg card outline outline-1 outline-neutral bg-base-100"
+      className="w-[calc(100vw-4rem)] h-full shadow-lg md:w-full card outline outline-1 outline-neutral bg-base-100"
     >
       <div className="card-body">
         <h2 className="mb-2 truncate card-title">{title}</h2>
