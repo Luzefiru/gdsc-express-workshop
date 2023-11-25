@@ -49,6 +49,18 @@ This workshop offers a one-day deep dive into the foundations of backend develop
 
 You'll be finishing the frontend I created here by making a backend in any programming language.
 
+### Usage
+
+```bash
+git clone https://github.com/Luzefiru/gdsc-express-workshop.git
+cd gdsc-express-workshop
+git checkout 0-start   # use the project branch with the code to start with
+cd client              # the directory with all the frontend code
+npm install            # installs the packages for the frontend only
+npm run mock           # runs the mock server on port 3000
+npm run dev            # runs the frontend client application
+```
+
 ### Acceptance Criteria
 
 1. The frontend should communicate with the backend.
