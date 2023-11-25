@@ -11,7 +11,7 @@ function DeletePostModal({ id, title }) {
   };
 
   const handleSubmit = () => {
-    const createNewPost = async () => {
+    const deletePost = async () => {
       try {
         await PostService.deletePost(id);
         setError('');
@@ -22,7 +22,7 @@ function DeletePostModal({ id, title }) {
         setError('Something went wrong with the server! Check the logs.');
       }
     };
-    createNewPost();
+    deletePost();
   };
 
   return (

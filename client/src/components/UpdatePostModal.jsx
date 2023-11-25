@@ -1,31 +1,34 @@
 import { useState } from 'react';
+import propTypes from 'prop-types';
 import { PostService } from '../services';
 
-function CreatePostModal() {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+function UpdatePostModal({ id, title, content }) {
+  const [newTitle, setNewTitle] = useState(title);
+  const [newContent, setNewContent] = useState(content);
   const [error, setError] = useState('');
 
   const handleClose = () => {
-    document.getElementById('create-post').close();
-    setTitle('');
-    setContent('');
+    document.getElementById('edit-post').close();
+    setNewTitle(title);
+    setNewContent(content);
     setError('');
   };
 
   const handleSubmit = () => {
     // input validation
-    if (title === '' || content === '') {
+    if (newTitle === '' || newContent === '') {
       setError('Error: Title or Content fields must not be empty!');
       return;
     }
 
-    const createNewPost = async () => {
+    const editPost = async () => {
       try {
-        const newPost = await PostService.createPost({ title, content });
-        console.log(newPost);
-        setTitle('');
-        setContent('');
+        const editedPost = await PostService.updatePost({
+          id,
+          title: newTitle,
+          content: newContent,
+        });
+        console.log(editedPost);
         setError('');
         handleClose();
         window.location.reload();
@@ -34,7 +37,7 @@ function CreatePostModal() {
         setError('Something went wrong with the server! Check the logs.');
       }
     };
-    createNewPost();
+    editPost();
   };
 
   const handleChange = (e, setFn) => {
@@ -44,22 +47,36 @@ function CreatePostModal() {
   return (
     <>
       <button
-        className="text-sm btn btn-sm md:btn-md md:text-lg"
-        onClick={() => document.getElementById('create-post').showModal()}
+        className="btn btn-square btn-outline"
+        onClick={() => document.getElementById('edit-post').showModal()}
       >
-        Create Post
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+          />
+        </svg>
       </button>
-      <dialog id="create-post" className="modal">
+
+      <dialog id="edit-post" className="modal">
         <div className="w-11/12 max-w-5xl modal-box">
-          <h3 className="text-xl font-bold">Create Post</h3>
+          <h3 className="text-xl font-bold">Edit Post</h3>
           <div className="w-full py-4">
             <label className="label">
               <span className="font-semibold label-text">Title</span>
             </label>
             <input
-              value={title}
+              value={newTitle}
               onChange={(e) => {
-                handleChange(e, setTitle);
+                handleChange(e, setNewTitle);
               }}
               type="text"
               placeholder="Type here"
@@ -69,9 +86,9 @@ function CreatePostModal() {
               <span className="font-semibold label-text">Content</span>
             </label>
             <textarea
-              value={content}
+              value={newContent}
               onChange={(e) => {
-                handleChange(e, setContent);
+                handleChange(e, setNewContent);
               }}
               className="w-full textarea textarea-bordered"
               placeholder="Bio"
@@ -85,12 +102,12 @@ function CreatePostModal() {
                 Cancel
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-secondary"
                 onClick={() => {
                   handleSubmit();
                 }}
               >
-                Post
+                Edit
               </button>
             </div>
           </div>
@@ -100,4 +117,10 @@ function CreatePostModal() {
   );
 }
 
-export default CreatePostModal;
+UpdatePostModal.propTypes = {
+  id: propTypes.number.isRequired,
+  title: propTypes.string.isRequired,
+  content: propTypes.string.isRequired,
+};
+
+export default UpdatePostModal;

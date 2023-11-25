@@ -17,7 +17,12 @@ const PostService = (() => {
     return;
   };
 
-  return { getPosts, createPost, deletePost };
+  const updatePost = async ({ id, title, content }) => {
+    const { data } = await axios.put(`${baseUrl}/${id}`, { title, content });
+    return data;
+  };
+
+  return { getPosts, createPost, deletePost, updatePost };
 })();
 
 export default PostService;
