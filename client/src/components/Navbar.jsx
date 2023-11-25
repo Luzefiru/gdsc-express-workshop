@@ -12,70 +12,24 @@ function Navbar() {
   return (
     <div className="sticky top-0 z-50 px-4 mb-8 shadow-sm navbar bg-base-100">
       <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        <a className="flex items-center justify-center text-2xl btn btn-ghost">
+          <svg
+            className="md:w-6 md:h-6 w-8 h-8 pt-[0.125rem]"
+            viewBox="0 0 256 205"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            preserveAspectRatio="xMidYMid"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
-        <a className="text-xl btn btn-ghost">Relay</a>
-      </div>
-      <div className="hidden navbar-center lg:flex">
-        <ul className="px-1 menu menu-horizontal">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li tabIndex={0}>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+            <g>
+              <path
+                d="M27.008,53.504 L2.368,93.824 C0.768,96.32 0,99.264 0,102.4 C0,105.536 0.768,108.48 2.368,111.04 L59.712,204.8 L119.424,204.8 L27.008,53.504 L27.008,53.504 Z M59.712,0 L33.92,42.112 L63.808,91.008 L119.488,0 L59.712,0 L59.712,0 Z M228.992,151.296 L253.632,110.976 C255.232,108.48 256,105.536 256,102.4 C256,99.264 255.232,96.32 253.632,93.76 L196.288,0 L136.576,0 L228.992,151.296 L228.992,151.296 Z M196.288,204.8 L222.08,162.688 L192.192,113.792 L136.512,204.8 L196.288,204.8 L196.288,204.8 Z"
+                fill="#C7CDD0"
+              ></path>
+            </g>
+          </svg>
+          <span className="hidden md:inline">Inbound Relay</span>
+        </a>
       </div>
       <div className="flex gap-2 navbar-end md:gap-4">
         <CreatePostModal />
