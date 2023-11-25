@@ -11,7 +11,8 @@ function PostGrid() {
     const fetchPostsFromBackend = async () => {
       try {
         const fetchedPosts = await PostService.getPosts();
-        console.log(fetchedPosts);
+        console.log('Fetched Posts:');
+        console.table(fetchedPosts);
         setPosts(fetchedPosts);
         setIsLoading(false);
       } catch (e) {
