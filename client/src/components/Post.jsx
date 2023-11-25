@@ -8,7 +8,7 @@ function Post({ id, title, content }) {
       className="w-full h-full shadow-lg card outline outline-1 outline-neutral bg-base-100"
     >
       <div className="card-body">
-        <h2 className="truncate card-title">{title}</h2>
+        <h2 className="mb-2 truncate card-title">{title}</h2>
         <p>{content}</p>
         <div className="flex justify-end gap-4 mt-4">
           <DeletePostModal id={id} title={title} />
