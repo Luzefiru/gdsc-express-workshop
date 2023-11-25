@@ -8,7 +8,7 @@ function UpdatePostModal({ id, title, content }) {
   const [error, setError] = useState('');
 
   const handleClose = () => {
-    document.getElementById('edit-post').close();
+    document.getElementById(`edit-${id}`).close();
     setNewTitle(title);
     setNewContent(content);
     setError('');
@@ -48,7 +48,7 @@ function UpdatePostModal({ id, title, content }) {
     <>
       <button
         className="btn btn-square btn-outline"
-        onClick={() => document.getElementById('edit-post').showModal()}
+        onClick={() => document.getElementById(`edit-${id}`).showModal()}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ function UpdatePostModal({ id, title, content }) {
         </svg>
       </button>
 
-      <dialog id="edit-post" className="modal">
+      <dialog id={`edit-${id}`} className="modal">
         <div className="w-11/12 max-w-5xl modal-box">
           <h3 className="text-xl font-bold">Edit Post</h3>
           <div className="w-full py-4">

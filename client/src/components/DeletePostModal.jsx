@@ -6,7 +6,7 @@ function DeletePostModal({ id, title }) {
   const [error, setError] = useState('');
 
   const handleClose = () => {
-    document.getElementById('delete-post').close();
+    document.getElementById(`delete-${id}`).close();
     setError('');
   };
 
@@ -29,7 +29,7 @@ function DeletePostModal({ id, title }) {
     <>
       <button
         className="btn btn-error btn-square btn-outline"
-        onClick={() => document.getElementById('delete-post').showModal()}
+        onClick={() => document.getElementById(`delete-${id}`).showModal()}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ function DeletePostModal({ id, title }) {
           />
         </svg>
       </button>
-      <dialog id="delete-post" className="modal">
+      <dialog id={`delete-${id}`} className="modal">
         <div className="w-11/12 max-w-5xl modal-box">
           <h3 className="text-xl font-bold">Delete Post</h3>
           <p className="mt-4 text-lg">

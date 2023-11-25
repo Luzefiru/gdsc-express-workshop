@@ -1,16 +1,6 @@
 {
   "post": [
     {
-      "id": 1,
-      "title": "New Quantum Computing Breakthrough",
-      "content": "Researchers have unveiled a groundbreaking discovery in quantum computing, marking a significant leap in computational capabilities. The breakthrough involves harnessing quantum entanglement to perform complex calculations at unprecedented speeds."
-    },
-    {
-      "id": 2,
-      "title": "AI Advancements: Ethics and Challenges",
-      "content": "As artificial intelligence continues to evolve, discussions about ethical considerations and potential challenges intensify. Experts debate the implications of AI autonomy and the ethical frameworks necessary to guide its development."
-    },
-    {
       "id": 3,
       "title": "SpaceX's Ambitious Mars Plan",
       "content": "Elon Musk announces plans for SpaceX's ambitious mission to establish a sustainable human colony on Mars within the next decade. The project aims to pioneer interplanetary travel and make life multiplanetary."
